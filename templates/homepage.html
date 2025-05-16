@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bookish Brews</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #fff;
+            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 40px;
+            border-radius: 10px;
+            background-color: rgba(0, 0, 0, 0.6);
+            max-width: 700px;
+            width: 100%;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin: 0;
+            color: #f0e6f7;
+            font-weight: 600;
+            letter-spacing: 3px;
+        }
+
+        .hero p {
+            font-size: 1.4rem;
+            color: #ddd;
+            margin: 20px 0;
+            line-height: 1.6;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero button,
+        .logout-button {
+            background-color: #ff7b00;
+            padding: 15px 40px;
+            font-size: 1.3rem;
+            border-radius: 25px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 20px;
+        }
+
+        .hero button:hover,
+        .logout-button:hover {
+            background-color: #ff4200;
+            transform: scale(1.05);
+        }
+
+        /* Navigation Bar */
+        .nav {
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            justify-content: center;
+            width: 100%;
+        }
+
+        .nav a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.2rem;
+            margin: 0 15px;
+            padding: 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .nav a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            color: #fff;
+        }
+
+        /* Added mobile responsiveness */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .hero button,
+            .logout-button {
+                padding: 12px 30px;
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="nav">
+        <div class="logo">Readlog</div>
+    </div>
+    <div class="hero">
+        <h1>Welcome to ReadLog</h1>
+        <p>Track and store your favorite books, share your journey, and keep your reading list organized!</p>
+        <a href="{{url_for('index')}}"><button>Add the books you completed</button></a>
+        <a href="{{url_for('logout')}}"><button class="logout-button">Logout</button></a>
+    </div>
+</body>
+
+</html>

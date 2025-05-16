@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Library</title>
+    <style>
+      /* General Layout */
+      body {
+          font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+          margin: 0;
+          padding: 0;
+          background-color: #f0f8ff;
+          color: #333;
+      }
+
+      /* Heading Styling */
+      h1 {
+          text-align: center;
+          color: #2d2d2d;
+          font-size: 2.8rem;
+          margin-bottom: 30px;
+      }
+
+      /* Book Cards Container */
+      .book-card-container {
+          display: grid;
+          grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+          gap: 30px;
+          justify-items: center;
+          padding: 0 20px;
+      }
+
+      /* Single Book Card Styling */
+      .book-card {
+          background-color: #ffffff;
+          border-radius: 12px;
+          box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+          overflow: hidden;
+          width: 100%;
+          max-width: 320px;
+          text-align: center;
+          transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+      }
+
+      .book-card:hover {
+          transform: translateY(-5px);
+          box-shadow: 0 20px 30px rgba(0, 0, 0, 0.15);
+      }
+
+      /* Book Title Styling */
+      .book-card h2 {
+          font-size: 1.6rem;
+          margin: 15px 0;
+          color: #007bff;
+      }
+
+      /* Author & Rating Styles */
+      .book-card .author {
+          font-size: 1rem;
+          color: #555;
+          margin-bottom: 10px;
+      }
+
+      .book-card .rating {
+          font-size: 1.2rem;
+          color: #28a745;
+          font-weight: bold;
+      }
+
+      /* Review Styling */
+      .book-card .review {
+          font-size: 1rem;
+          color: #777;
+          margin-top: 10px;
+          padding: 0 15px;
+          font-style: italic;
+      }
+
+      /* Empty State Message */
+      .no-books {
+          text-align: center;
+          color: #888;
+          font-size: 1.2rem;
+          margin-top: 50px;
+          font-style: italic;
+      }
+
+      /* "Books Collection" Header Styling */
+      .book-heading {
+          text-align: center;
+          font-size: 2rem;
+          font-weight: bold;
+          color: #fff;
+          background-color: #007bff;
+          padding: 20px;
+          border-radius: 10px;
+          width: 80%;
+          margin: 0 auto 30px;
+      }
+
+      /* Link Styling for Actions */
+      a {
+          display: inline-block;
+          padding: 12px 20px;
+          font-size: 1rem;
+          background-color: #007bff;
+          color: #fff;
+          text-decoration: none;
+          border-radius: 8px;
+          text-align: center;
+          margin: 20px auto;
+          transition: background-color 0.3s ease;
+      }
+
+      a:hover {
+          background-color: #0056b3;
+      }
+
+      /* Center the action buttons */
+      .action-buttons {
+          display: flex;
+          justify-content: center;
+          gap: 15px;
+          margin-top: 30px;
+      }
+
+    </style>
+  </head>
+  <body>
+
+    <h1>My Library</h1>
+
+    {% if books %}
+      <div class="book-heading">Books Collection</div>
+      <div class="book-card-container">
+        {% for book in books %}
+          <div class="book-card">
+            <h2>{{ book.title }}</h2>
+            <p class="author">By: {{ book.author }}</p>
+            <p class="rating">Rating: {{ book.rating }}</p>
+            <p class="review">{{ book.review }}</p>
+          </div>
+        {% endfor %}
+      </div>
+    {% else %}
+      <p class="no-books">No books added yet!</p>
+    {% endif %}
+
+    <div class="action-buttons">
+      <a href="{{ url_for('add') }}">Add New Book</a>
+      <a href="{{ url_for('returns') }}">Return to Home</a>
+      <a href="{{ url_for('logout') }}">Logout</a>
+    </div>
+
+  </body>
+</html>
