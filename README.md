@@ -1,6 +1,6 @@
 # 📚 Virtual Bookshelf App
 
-# Deployement Link: https://virtual-book-shelf.onrender.com/login#
+# Deployment Link: https://virtual-book-shelf.onrender.com/login#
 
 A simple and elegant web application to keep track of your personal book collection. Add, view, and manage books using a connected database backend.
 
